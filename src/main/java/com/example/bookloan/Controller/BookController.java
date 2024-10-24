@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/books")
 public class BookController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public void delteBook(@PathVariable Long id) {
+    public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
     }
 

@@ -26,14 +26,13 @@ public class BookService {
     }
 
     public Book updateBook(Long id, Book updatedBook) {
-        return bookRepo.findById(id)
-                .map(book -> {
-                    book.setTitle(updatedBook.getTitle());
-                    book.setAuthor(updatedBook.getAuthor());
-                    book.setIsbn(updatedBook.getIsbn());
-                    book.setIsAvaliable(updatedBook.isIsAvaliable());
-                    return bookRepo.save(book);
-                }).orElse(null);
+        return bookRepo.findById(id).map(book -> {
+            book.setTitle(updatedBook.getTitle());
+            book.setIsbn(updatedBook.getIsbn());
+            book.setIsAvaliable(updatedBook.isIsAvaliable());
+            book.setAuthor(updatedBook.getAuthor());
+            return bookRepo.save(book);
+        }).orElse(null);
     }
 
     public void deleteBook(Long id) {
