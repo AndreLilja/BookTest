@@ -29,11 +29,13 @@ public class BookService {
         return bookRepo.findById(id).map(book -> {
             book.setTitle(updatedBook.getTitle());
             book.setIsbn(updatedBook.getIsbn());
-            book.setIsAvaliable(updatedBook.isIsAvaliable());
-            book.setAuthor(updatedBook.getAuthor());
+            book.setAvailable(updatedBook.isAvailable());
+            //book.setAuthor(updatedBook.getAuthor());
             return bookRepo.save(book);
         }).orElse(null);
     }
+
+
 
     public void deleteBook(Long id) {
         bookRepo.deleteById(id);
